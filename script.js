@@ -20,13 +20,15 @@ function addBookToLibrary(title, author, pages, wasRead) {
 }
 
 function displayBooks(arr) {
-  arr.forEach((item) => {
-    let title = item.title;
-    let author = item.author;
-    let pages = item.pages;
-    let wasRead = item.wasRead;
-    display.textContent = title + author + pages + wasRead;
+  arr.forEach((element) => {
+    const newCard = document.createElement("div");
+    newCard.classList.add("card");
+    newCard.textContent += element.title;
+    display.appendChild(newCard);
   });
 }
 addBookToLibrary("Hobbit", "cotsam0", "222", "yes");
+addBookToLibrary("Costam", "cotsam0", "222", "yes");
+addBookToLibrary("Costam", "cotsam0", "222", "yes");
 displayBooks(myLibrary);
+console.log(myLibrary);

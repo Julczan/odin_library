@@ -1,9 +1,21 @@
 body {
   background-color: black;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 200px 1fr;
 }
 
 .display {
-  width: 200px;
-  height: 200px;
-  background-color: white;
+  background-color: rgba(165, 42, 42, 0.589);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+  gap: 20px;
+}
+
+.card {
+  color: white;
+  background-color: rgb(151, 151, 151);
+  height: 250px;
 }
