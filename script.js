@@ -47,12 +47,19 @@ function displayBooks(arr) {
   });
 }
 
-// button.addEventListener("click", () => {
-//   dialog.showModal();
-// });
-
 button.addEventListener("click", () => {
-  addBookToLibrary("Costam", "ew", "222", true);
+  dialog.showModal();
+});
+
+submitBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  const titleForm = document.querySelector("#title").value;
+  const authorForm = document.querySelector("#author").value;
+  const pagesForm = document.querySelector("#pages").value;
+  const wasReadForm = document.querySelector("#wasRead").checked;
+  console.log(wasReadForm);
+
+  addBookToLibrary(titleForm, authorForm, pagesForm, wasReadForm);
   displayBooks(myLibrary);
 });
 
