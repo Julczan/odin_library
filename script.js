@@ -1,6 +1,8 @@
 const display = document.querySelector(".display");
-const button = document.querySelector("button");
+const button = document.querySelector(".new-book");
 const dialog = document.querySelector("dialog");
+const submitBtn = document.querySelector(".submit");
+const inputVal = document.querySelector("input");
 
 const myLibrary = [];
 
@@ -22,6 +24,7 @@ function addBookToLibrary(title, author, pages, wasRead) {
 }
 
 function displayBooks(arr) {
+  display.textContent = "";
   arr.forEach((element) => {
     const newCard = document.createElement("div");
     const titleText = document.createElement("div");
@@ -44,12 +47,15 @@ function displayBooks(arr) {
   });
 }
 
+// button.addEventListener("click", () => {
+//   dialog.showModal();
+// });
+
 button.addEventListener("click", () => {
-  dialog.showModal();
+  addBookToLibrary("Costam", "ew", "222", true);
+  displayBooks(myLibrary);
 });
 
-addBookToLibrary("Costam", "ew", "222", "yes");
-addBookToLibrary("Costam", "ew", "222", "yes");
-addBookToLibrary("Costam", "cotsam0", "222", "yes");
+addBookToLibrary("Costam", "ew", "222", true);
+addBookToLibrary("Costam", "ew", "222", false);
 displayBooks(myLibrary);
-console.log(myLibrary);
