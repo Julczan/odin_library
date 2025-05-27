@@ -28,6 +28,7 @@ body {
 
 .card {
   color: white;
+  font-size: 2rem;
   background-color: rgb(180, 180, 180);
   height: 250px;
   border-radius: 20px;
@@ -60,9 +61,24 @@ dialog {
   border-radius: 20px;
 }
 
+.submit {
+  justify-self: start;
+}
+
 form {
   margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  align-items: center;
+  justify-items: end;
+  gap: 20px;
 }
+
+input[type="checkbox"] {
+  justify-self: start;
+}
+
 input[tyep="text"] {
   height: 30px;
 }

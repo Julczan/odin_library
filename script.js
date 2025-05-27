@@ -3,6 +3,7 @@ const button = document.querySelector(".new-book");
 const dialog = document.querySelector("dialog");
 const submitBtn = document.querySelector(".submit");
 const inputVal = document.querySelector("input");
+const form = document.querySelector("form");
 
 const myLibrary = [];
 
@@ -52,15 +53,19 @@ button.addEventListener("click", () => {
 });
 
 submitBtn.addEventListener("click", (event) => {
-  event.preventDefault();
   const titleForm = document.querySelector("#title").value;
   const authorForm = document.querySelector("#author").value;
   const pagesForm = document.querySelector("#pages").value;
   const wasReadForm = document.querySelector("#wasRead").checked;
-  console.log(wasReadForm);
 
-  addBookToLibrary(titleForm, authorForm, pagesForm, wasReadForm);
-  displayBooks(myLibrary);
+  if (form.checkValidity()) {
+    event.preventDefault();
+    addBookToLibrary(titleForm, authorForm, pagesForm, wasReadForm);
+    displayBooks(myLibrary);
+    dialog.close();
+  } else {
+    return "";
+  }
 });
 
 addBookToLibrary("Costam", "ew", "222", true);
