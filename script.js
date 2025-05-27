@@ -32,12 +32,22 @@ function displayBooks(arr) {
     const authorText = document.createElement("div");
     const pagesText = document.createElement("div");
     const wasReadText = document.createElement("div");
+    const deleteBtn = document.createElement("button");
+
+    deleteBtn.classList.add("deleteBtn");
+    deleteBtn.textContent = "Remove";
 
     newCard.appendChild(titleText);
     newCard.appendChild(authorText);
     newCard.appendChild(pagesText);
     newCard.appendChild(wasReadText);
+    newCard.appendChild(deleteBtn);
+    newCard.dataset.id = element.id;
     newCard.classList.add("card");
+
+    deleteBtn.addEventListener("click", () => {
+      displayBooks(myLibrary);
+    });
 
     titleText.textContent += element.title;
     authorText.textContent += element.author;
@@ -68,6 +78,13 @@ submitBtn.addEventListener("click", (event) => {
   }
 });
 
-addBookToLibrary("Costam", "ew", "222", true);
-addBookToLibrary("Costam", "ew", "222", false);
+addBookToLibrary("TOTOT", "OWO", "243645622", true);
+addBookToLibrary("Costam", "NIeee", "34574", false);
+addBookToLibrary("Nowe", "Taktak", "123", true);
+addBookToLibrary("Niewiem", "oksok", "4444", false);
+addBookToLibrary("Doweim", "okej", "55334", true);
+addBookToLibrary("SIE", "dobradobra", "54563", false);
+
 displayBooks(myLibrary);
+
+console.log(myLibrary);
