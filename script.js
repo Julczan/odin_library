@@ -31,7 +31,7 @@ function displayBooks(arr) {
     const titleText = document.createElement("div");
     const authorText = document.createElement("div");
     const pagesText = document.createElement("div");
-    const wasReadText = document.createElement("div");
+    const wasReadText = document.createElement("button");
     const deleteBtn = document.createElement("button");
 
     deleteBtn.classList.add("deleteBtn");
@@ -51,10 +51,17 @@ function displayBooks(arr) {
       displayBooks(myLibrary);
     });
 
+    if (element.wasRead) {
+      wasReadText.textContent = "Read";
+      wasReadText.classList.add("readBtn");
+    } else {
+      wasReadText.textContent = "Not Read";
+      wasReadText.classList.add("deleteBtn");
+    }
+
     titleText.textContent += element.title;
     authorText.textContent += element.author;
     pagesText.textContent += element.pages;
-    wasReadText.textContent += element.wasRead;
 
     display.appendChild(newCard);
   });
@@ -79,3 +86,5 @@ submitBtn.addEventListener("click", (event) => {
     return "";
   }
 });
+
+displayBooks(myLibrary);
