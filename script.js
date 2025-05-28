@@ -46,6 +46,8 @@ function displayBooks(arr) {
     newCard.classList.add("card");
 
     deleteBtn.addEventListener("click", () => {
+      let index = myLibrary.indexOf(element);
+      myLibrary.splice(index, 1);
       displayBooks(myLibrary);
     });
 
@@ -77,14 +79,3 @@ submitBtn.addEventListener("click", (event) => {
     return "";
   }
 });
-
-addBookToLibrary("TOTOT", "OWO", "243645622", true);
-addBookToLibrary("Costam", "NIeee", "34574", false);
-addBookToLibrary("Nowe", "Taktak", "123", true);
-addBookToLibrary("Niewiem", "oksok", "4444", false);
-addBookToLibrary("Doweim", "okej", "55334", true);
-addBookToLibrary("SIE", "dobradobra", "54563", false);
-
-displayBooks(myLibrary);
-
-console.log(myLibrary);
