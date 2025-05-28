@@ -24,6 +24,14 @@ function addBookToLibrary(title, author, pages, wasRead) {
   myLibrary.push(book);
 }
 
+Book.prototype.toggleRead = function () {
+  if (this.wasRead) {
+    this.wasRead = false;
+  } else {
+    this.wasRead = true;
+  }
+};
+
 function displayBooks(arr) {
   display.textContent = "";
   arr.forEach((element) => {
@@ -59,6 +67,11 @@ function displayBooks(arr) {
       wasReadText.classList.add("deleteBtn");
     }
 
+    wasReadText.addEventListener("click", () => {
+      element.toggleRead();
+      displayBooks(myLibrary);
+    });
+
     titleText.textContent += element.title;
     authorText.textContent += element.author;
     pagesText.textContent += element.pages;
@@ -82,9 +95,8 @@ submitBtn.addEventListener("click", (event) => {
     addBookToLibrary(titleForm, authorForm, pagesForm, wasReadForm);
     displayBooks(myLibrary);
     dialog.close();
+    form.reset();
   } else {
     return "";
   }
 });
-
-displayBooks(myLibrary);
