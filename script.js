@@ -100,3 +100,5 @@ submitBtn.addEventListener("click", (event) => {
     return "";
   }
 });
+
+function some() {}
