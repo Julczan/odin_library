@@ -7,15 +7,14 @@ const form = document.querySelector("form");
 
 const myLibrary = [];
 
-function Book(id, title, author, pages, wasRead) {
-  if (!new.target) {
-    throw Error("You must use the 'new' operator");
+class Book {
+  constructor(id, title, author, pages, wasRead) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.wasRead = wasRead;
   }
-  this.id = id;
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.wasRead = wasRead;
 }
 
 function addBookToLibrary(title, author, pages, wasRead) {
@@ -100,5 +99,3 @@ submitBtn.addEventListener("click", (event) => {
     return "";
   }
 });
-
-function some() {}
